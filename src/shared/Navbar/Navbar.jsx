@@ -39,9 +39,31 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="hidden md:flex gap-2">
-          <li>sign-in</li>
-          <li>sign-in</li>
+        <ul className="hidden md:flex md:flex-row justify-center gap-3 font-medium">
+          <li>
+            <NavLink
+              to="/sign-up"
+              className={({ isActive }) =>
+                isActive
+                  ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                  : `border-0 text-[#00b4d8] p-1`
+              }
+            >
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/sign-in"
+              className={({ isActive }) =>
+                isActive
+                  ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                  : `border-0 text-[#00b4d8] p-1`
+              }
+            >
+              Sign In
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

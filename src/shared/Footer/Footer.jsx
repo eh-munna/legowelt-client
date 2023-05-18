@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="font-[roboto] bg-[#f8f9fa] py-6 md:py-16 shadow-inner">
       <div className="container px-1 md:px-3 py- mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 md:items-center gap-4 md:gap-5">
-          <div className="flex flex-col md:items-center justify-center gap-2 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
+          <div className="flex flex-col md:items-center  gap-2 md:gap-4">
             <Link to="/">
               <img src={logo} alt="logo" className="max-w-full h-16 md:h-20" />
             </Link>
@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           {/* social links */}
           <div className="pt-3 md:pt-0">
-            <h3 className="text-[#00b4d8] md:text-center font-bold font-[archivo] text-xl md:text-2xl pb-1 md:pb-4">
+            <h3 className="text-[#00b4d8] md:text-center font-bold font-[archivo] text-xl md:text-2xl pb-2.5 md:pb-4">
               Follow us
             </h3>
             <ul className="flex items-center gap-3 md:justify-center">
@@ -63,14 +63,14 @@ const Footer = () => {
               </li>
               <li className="text-[#0077b6] font-medium font-[roboto] p-1">
                 <NavLink
-                  to="/"
+                  to="/blog"
                   className={({ isActive }) =>
                     isActive
                       ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
                       : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
                   }
                 >
-                  Home
+                  Blog
                 </NavLink>
               </li>
               <li className="text-[#0077b6] font-medium font-[roboto] p-1">
