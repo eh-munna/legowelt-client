@@ -1,10 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '/logo-no-background.png';
 import { FaAlignLeft, FaAlignRight } from 'react-icons/fa';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const { user } = useContext(AuthContext);
   return (
     <nav className=" bg-[#f8f9fa] shadow-md sticky top-0 rounded-b-md pb-2 md:pb-0">
       <div className="relative container px-1 md:px-3 mx-auto flex justify-between items-center">
@@ -145,30 +147,47 @@ const Navbar = () => {
           </ul>
         </div>
         <ul className="hidden md:flex md:flex-row justify-center gap-3 font-medium">
-          <li>
-            <NavLink
-              to="/sign-up"
-              className={({ isActive }) =>
-                isActive
-                  ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                  : `border-0 text-[#00b4d8] p-1`
-              }
-            >
-              Sign Up
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/sign-in"
-              className={({ isActive }) =>
-                isActive
-                  ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                  : `border-0 text-[#00b4d8] p-1`
-              }
-            >
-              Sign In
-            </NavLink>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <NavLink
+                  to="/sign-in"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                      : `border-0 text-[#00b4d8] p-1`
+                  }
+                >
+                  {user.displayName}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                      : `border-0 text-[#00b4d8] p-1`
+                  }
+                >
+                  Sign Out
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li>
+              <NavLink
+                to="/sign-in"
+                className={({ isActive }) =>
+                  isActive
+                    ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                    : `border-0 text-[#00b4d8] p-1`
+                }
+              >
+                Sign In
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

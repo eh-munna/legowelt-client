@@ -1,15 +1,61 @@
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
+  const [error, setError] = useState('');
+  const { createUser, userLogOut } = useContext(AuthContext);
+  const navigation = useNavigate();
+
   // creating a new user with email and password
-  const createUser = (event) => {
+  const userSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photoUrl = form.photoUrl.value;
-    console.log(name, email, password, photoUrl);
+    if (password.length < 6) {
+      setError('Password must be or at least 6 characters long');
+      return;
+    }
+
+    if (email && password) {
+      createUser(email, password)
+        .then((result) => {
+          const createdUser = result.user;
+          userUpdate(createdUser, name, photoUrl);
+          form.reset();
+          userSignOut();
+          navigation('/sign-in');
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          if (errorCode === 'auth/email-already-in-use') {
+            setError('Email already used');
+            return;
+          }
+        });
+    } else {
+      setError('Cannot register without providing email and password');
+      return;
+    }
+
+    // updating the user
+
+    const userUpdate = (currentUser, name, photoUrl) => {
+      updateProfile(currentUser, {
+        displayName: name,
+        photoURL: photoUrl,
+      }).then(() => {});
+    };
+
+    // user logout
+
+    const userSignOut = () => {
+      userLogOut().then(() => {});
+    };
   };
 
   return (
@@ -18,7 +64,7 @@ const SignUp = () => {
         Sign Up Here!!!
       </h1>
       <form
-        onSubmit={createUser}
+        onSubmit={userSignUp}
         className="w-10/12 mx-auto md:mx-0 md:w-2/3 font-[roboto] space-y-4"
       >
         <div>
