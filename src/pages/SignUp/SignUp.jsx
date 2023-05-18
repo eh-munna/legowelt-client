@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
-  // creating a new user
+  // creating a new user with email and password
   const createUser = (event) => {
     event.preventDefault();
     const form = event.target;
