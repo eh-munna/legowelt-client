@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="font-[roboto] bg-[#f8f9fa] py-6 md:py-16 shadow-inner">
       <div className="container px-1 md:px-3 py- mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
-          <div className="flex flex-col md:items-center  gap-2 md:gap-4">
+          <div className="md:items-center  gap-2 md:gap-4">
             <Link to="/">
               <img src={logo} alt="logo" className="max-w-full h-16 md:h-20" />
             </Link>
