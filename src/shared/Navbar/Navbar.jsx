@@ -3,7 +3,7 @@ import logo from '/logo-no-background.png';
 
 const Navbar = () => {
   return (
-    <nav className=" bg-[#f8f9fa] shadow-md sticky rounded-b-md">
+    <nav className=" bg-[#f8f9fa] shadow-md sticky top-0 rounded-b-md">
       <div className="container px-1 md:px-3 mx-auto flex justify-between items-center">
         <ul className="">
           <li>
@@ -13,7 +13,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <ul className="flex flex-col md:flex-row justify-center gap-3">
+        <ul className="flex flex-col md:flex-row justify-center gap-3 font-medium">
           <li>
             <NavLink
               to="/"
