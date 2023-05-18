@@ -4,7 +4,7 @@ import logo from '/logo-no-background.png';
 const Navbar = () => {
   return (
     <nav className=" bg-[#f8f9fa] shadow-md sticky rounded-b-md">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container px-1 md:px-3 mx-auto flex justify-between items-center">
         <ul className="">
           <li>
             <Link to="/">

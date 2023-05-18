@@ -16,7 +16,7 @@ const ErrorPage = () => {
         <p className="text-lg text-gray-500">Page not found</p>
 
         <Link to="/">
-          <button className="font-[roboto] bg-[#0353a4] rounded-md p-2 text-base md:text-lg text-[#fff]">
+          <button className="font-[roboto] bg-[#00b4d8]  rounded-md p-2 text-base md:text-lg text-[#fff]">
             Let&apos;s explore Home
           </button>
         </Link>
