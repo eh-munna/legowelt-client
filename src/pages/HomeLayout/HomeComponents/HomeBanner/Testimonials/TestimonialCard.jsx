@@ -1,29 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ review }) => {
+  const { customerName, customerProfession, customerReview } = review;
   return (
     <>
-      <div className="flex flex-col justify-between md:flex-row items-center">
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1504349427888-431233362350?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="testimonial"
-          />
-        </div>
+      <div className="flex flex-col justify-between gap-6 shadow-lg p-6 md:p-9 rounded-md border border-[#0077b6] border-opacity-5 bg-[#0077b6] bg-opacity-5">
         <div className="flex flex-col justify-between font-[roboto] text-[#0077b6]">
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-              odit ab magnam voluptatibus excepturi dolores animi sunt tenetur
-              et perspiciatis, asperiores autem unde esse deserunt facere hic
-              fugiat facilis quasi praesentium omnis voluptatum? Nulla quasi
-              voluptas mollitia eos, odio unde labore officia adipisci amet
-              reiciendis beatae dolore magnam ducimus ratione.
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            Lorem ipsum dolor, Perferendis, beatae
-          </div>
+          <p>{customerReview}</p>
+        </div>
+        <div className="flex flex-col">
+          <p className="font-[roboto] text-[#00b4d8] font-medium">
+            {customerName}
+          </p>
+          <p className="font-[roboto] text-[#00b4d8]">{customerProfession}</p>
         </div>
       </div>
     </>

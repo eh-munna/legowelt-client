@@ -11,7 +11,7 @@ const Footer = () => {
     if (!user) {
       toast.warn('You are not logged in', {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -24,7 +24,7 @@ const Footer = () => {
 
   return (
     <footer className="font-[roboto] bg-[#f8f9fa] py-6 md:py-16 shadow-inner">
-      <div className="container px-1 md:px-3 py- mx-auto">
+      <div className="container px-4 py- mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
           <div className="flex flex-col items-start md:items-center  gap-2 md:gap-4">
             <Link to="/">

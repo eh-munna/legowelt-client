@@ -9,7 +9,7 @@ const ByCategory = () => {
   const [cities, setCities] = useState([]);
   const [toggleTab, setToggleTab] = useState('LEGO City');
   useEffect(() => {
-    fetch('/public/toys.json')
+    fetch('/toys.json')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

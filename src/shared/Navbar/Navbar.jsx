@@ -24,7 +24,7 @@ const Navbar = () => {
     if (!user) {
       toast.warn('You are not logged in', {
         position: 'top-center',
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -115,18 +115,32 @@ const Navbar = () => {
                     </li>
                   </span>
                 ) : (
-                  <li>
-                    <NavLink
-                      to="/sign-in"
-                      className={({ isActive }) =>
-                        isActive
-                          ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                          : `border-0 text-[#00b4d8] p-1`
-                      }
-                    >
-                      Sign In
-                    </NavLink>
-                  </li>
+                  <>
+                    <li>
+                      <NavLink
+                        to="/sign-in"
+                        className={({ isActive }) =>
+                          isActive
+                            ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                            : `border-0 text-[#00b4d8] p-1`
+                        }
+                      >
+                        Sign In
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/sign-up"
+                        className={({ isActive }) =>
+                          isActive
+                            ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                            : `border-0 text-[#00b4d8] p-1`
+                        }
+                      >
+                        Sign Up
+                      </NavLink>
+                    </li>
+                  </>
                 )}
               </ul>
             </div>
@@ -216,18 +230,32 @@ const Navbar = () => {
               </li>
             </span>
           ) : (
-            <li>
-              <NavLink
-                to="/sign-in"
-                className={({ isActive }) =>
-                  isActive
-                    ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                    : `border-0 text-[#00b4d8] p-1`
-                }
-              >
-                Sign In
-              </NavLink>
-            </li>
+            <>
+              <li>
+                <NavLink
+                  to="/sign-in"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                      : `border-0 text-[#00b4d8] p-1`
+                  }
+                >
+                  Sign In
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/sign-up"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                      : `border-0 text-[#00b4d8] p-1`
+                  }
+                >
+                  Sign Up
+                </NavLink>
+              </li>
+            </>
           )}
         </ul>
       </div>

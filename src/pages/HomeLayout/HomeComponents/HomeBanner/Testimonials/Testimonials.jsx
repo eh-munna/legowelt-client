@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TestimonialCard from './TestimonialCard';
 
 const Testimonials = () => {
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch('/customerReviews.json')
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
   return (
     <div className="my-6 md:my-16">
       <div className="capitalize text-center space-y-3 py-4 md:py-12">
@@ -12,8 +18,10 @@ const Testimonials = () => {
           They Speak their heart out
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-3">
-        <TestimonialCard></TestimonialCard>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
+        {reviews.map((review, idx) => (
+          <TestimonialCard key={idx} review={review} />
+        ))}
       </div>
     </div>
   );

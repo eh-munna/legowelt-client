@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaHeart, FaMoneyBill } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../../../../providers/AuthProvider';
 
 const CategroyCard = ({ product }) => {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  const userNotification = () => {
+    if (!user) {
+      toast.warn('You have to log in first to view details', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+      navigate('/sign-in');
+    }
+  };
+
   return (
     <div className="p-6 mt-6 flex flex-col justify-between shadow-xl rounded-md border border-[#00b4d8] border-opacity-5">
       <div>
@@ -25,7 +47,10 @@ const CategroyCard = ({ product }) => {
             {product.rating}
           </p>
         </div>
-        <button className="font-[roboto] bg-[#00b4d8] rounded-md p-2 text-base md:text-lg text-[#fff]">
+        <button
+          onClick={userNotification}
+          className="font-[roboto] bg-[#00b4d8] rounded-md p-2 text-base md:text-lg text-[#fff]"
+        >
           View Details
         </button>
       </div>
