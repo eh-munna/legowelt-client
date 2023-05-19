@@ -11,6 +11,7 @@ const SignUp = () => {
   // creating a new user with email and password
   const userSignUp = (event) => {
     event.preventDefault();
+    setError('');
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -60,9 +61,15 @@ const SignUp = () => {
 
   return (
     <div className="my-6 md:my-16 w-full md:w-2/3 mx-auto">
+      {/* error message */}
       <h1 className="font-[archivo] text-center md:text-left text-[#0077b6] text-4xl font-bold pb-4">
         Sign Up Here!!!
       </h1>
+
+      <p className="text-red-500 text-center md:text-left text-xl font-[roboto] py-2">
+        {error}
+      </p>
+
       <form
         onSubmit={userSignUp}
         className="w-10/12 mx-auto md:mx-0 md:w-2/3 font-[roboto] space-y-4"

@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '/logo-no-background.png';
 import { FaAlignLeft, FaAlignRight } from 'react-icons/fa';
 import { useContext, useState } from 'react';
@@ -6,7 +6,16 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, userLogOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // signing out user
+
+  const userSignOut = () => {
+    userLogOut().then(() => {
+      navigate('/');
+    });
+  };
   return (
     <nav className=" bg-[#f8f9fa] shadow-md sticky top-0 rounded-b-md pb-2 md:pb-0">
       <div className="relative container px-1 md:px-3 mx-auto flex justify-between items-center">
@@ -49,6 +58,18 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                to="/my-toys"
+                className={({ isActive }) =>
+                  isActive
+                    ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                    : `border-0 text-[#00b4d8] p-1`
+                }
+              >
+                My Toys
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/blog"
                 className={({ isActive }) =>
                   isActive
@@ -61,30 +82,33 @@ const Navbar = () => {
             </li>
             <div className="md:hidden">
               <ul className="flex flex-col gap-3 md:gap-3 justify-center font-medium">
-                <li>
-                  <NavLink
-                    to="/sign-up"
-                    className={({ isActive }) =>
-                      isActive
-                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                        : `border-0 text-[#00b4d8] p-1`
-                    }
-                  >
-                    Sign Up
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/sign-in"
-                    className={({ isActive }) =>
-                      isActive
-                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                        : `border-0 text-[#00b4d8] p-1`
-                    }
-                  >
-                    Sign In
-                  </NavLink>
-                </li>
+                {user ? (
+                  <span className="flex justify-end md:justify-normal items-center gap-3">
+                    <li className="text-[#00b4d8]">
+                      <img
+                        className="w-6 h-6 rounded-full "
+                        src={user?.photoURL}
+                        alt=""
+                      />
+                    </li>
+                    <li className="text-[#00b4d8]">
+                      <button onClick={userSignOut}>Sign out</button>
+                    </li>
+                  </span>
+                ) : (
+                  <li>
+                    <NavLink
+                      to="/sign-in"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                          : `border-0 text-[#00b4d8] p-1`
+                      }
+                    >
+                      Sign In
+                    </NavLink>
+                  </li>
+                )}
               </ul>
             </div>
           </ul>
@@ -102,6 +126,18 @@ const Navbar = () => {
                 }
               >
                 Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-toys"
+                className={({ isActive }) =>
+                  isActive
+                    ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                    : `border-0 text-[#00b4d8] p-1`
+                }
+              >
+                My Toys
               </NavLink>
             </li>
             <li>
@@ -148,32 +184,18 @@ const Navbar = () => {
         </div>
         <ul className="hidden md:flex md:flex-row justify-center gap-3 font-medium">
           {user ? (
-            <>
-              <li>
-                <NavLink
-                  to="/sign-in"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                      : `border-0 text-[#00b4d8] p-1`
-                  }
-                >
-                  {user.displayName}
-                </NavLink>
+            <span className="flex items-center gap-3">
+              <li className="text-[#00b4d8]">
+                <img
+                  className="w-10 h-10 rounded-full "
+                  src={user?.photoURL}
+                  alt=""
+                />
               </li>
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
-                      : `border-0 text-[#00b4d8] p-1`
-                  }
-                >
-                  Sign Out
-                </NavLink>
+              <li className="text-[#00b4d8]">
+                <button onClick={userSignOut}>Sign out</button>
               </li>
-            </>
+            </span>
           ) : (
             <li>
               <NavLink

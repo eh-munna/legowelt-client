@@ -1,15 +1,19 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '/logo-no-background.png';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
+import { useContext } from 'react';
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   return (
     <footer className="font-[roboto] bg-[#f8f9fa] py-6 md:py-16 shadow-inner">
       <div className="container px-1 md:px-3 py- mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
-          <div className="md:items-center  gap-2 md:gap-4">
+          <div className="flex flex-col items-start md:items-center  gap-2 md:gap-4">
             <Link to="/">
               <img src={logo} alt="logo" className="max-w-full h-16 md:h-20" />
             </Link>
+
             <p className="text-[#00b4d8] font-bold font-[archivo] text-xl md:text-2xl">
               Legowelt
             </p>
@@ -63,6 +67,18 @@ const Footer = () => {
               </li>
               <li className="text-[#0077b6] font-medium font-[roboto] p-1">
                 <NavLink
+                  to="/my-toys"
+                  className={({ isActive }) =>
+                    isActive
+                      ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
+                      : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
+                  }
+                >
+                  My Toys
+                </NavLink>
+              </li>
+              <li className="text-[#0077b6] font-medium font-[roboto] p-1">
+                <NavLink
                   to="/blog"
                   className={({ isActive }) =>
                     isActive
@@ -71,30 +87,6 @@ const Footer = () => {
                   }
                 >
                   Blog
-                </NavLink>
-              </li>
-              <li className="text-[#0077b6] font-medium font-[roboto] p-1">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
-                      : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="text-[#0077b6] font-medium font-[roboto] p-1">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive
-                      ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
-                      : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
-                  }
-                >
-                  Home
                 </NavLink>
               </li>
             </ul>
