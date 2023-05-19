@@ -3,8 +3,25 @@ import logo from '/logo-no-background.png';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useContext } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 const Footer = () => {
   const { user } = useContext(AuthContext);
+
+  const userNotification = () => {
+    if (!user) {
+      toast.warn('You are not logged in', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
+  };
+
   return (
     <footer className="font-[roboto] bg-[#f8f9fa] py-6 md:py-16 shadow-inner">
       <div className="container px-1 md:px-3 py- mx-auto">
@@ -65,7 +82,10 @@ const Footer = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="text-[#0077b6] font-medium font-[roboto] p-1">
+              <li
+                onClick={userNotification}
+                className="text-[#0077b6] font-medium font-[roboto] p-1"
+              >
                 <NavLink
                   to="/my-toys"
                   className={({ isActive }) =>
@@ -120,6 +140,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      <ToastContainer />
     </footer>
   );
 };

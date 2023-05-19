@@ -4,6 +4,9 @@ import { FaAlignLeft, FaAlignRight } from 'react-icons/fa';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const { user, userLogOut } = useContext(AuthContext);
@@ -16,6 +19,22 @@ const Navbar = () => {
       navigate('/');
     });
   };
+
+  const userNotification = () => {
+    if (!user) {
+      toast.warn('You are not logged in', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
+    }
+  };
+
   return (
     <nav className=" bg-[#f8f9fa] shadow-md sticky top-0 rounded-b-md pb-2 md:pb-0">
       <div className="relative container px-1 md:px-3 mx-auto flex justify-between items-center">
@@ -56,7 +75,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            <li onClick={userNotification}>
               <NavLink
                 to="/my-toys"
                 className={({ isActive }) =>
@@ -128,7 +147,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            <li onClick={userNotification}>
               <NavLink
                 to="/my-toys"
                 className={({ isActive }) =>
@@ -212,6 +231,7 @@ const Navbar = () => {
           )}
         </ul>
       </div>
+      <ToastContainer />
     </nav>
   );
 };
