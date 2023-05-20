@@ -82,21 +82,51 @@ const Footer = () => {
                   Home
                 </NavLink>
               </li>
-              <li
-                onClick={userNotification}
-                className="text-[#0077b6] font-medium font-[roboto] p-1"
-              >
+
+              <li className="text-[#0077b6] font-medium font-[roboto] p-1">
                 <NavLink
-                  to="/my-toys"
+                  to="/all-toys"
                   className={({ isActive }) =>
                     isActive
-                      ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
-                      : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
+                      ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                      : `border-0 text-[#00b4d8] p-1`
                   }
                 >
-                  My Toys
+                  All Toys
                 </NavLink>
               </li>
+              {user && (
+                <>
+                  <li className="text-[#0077b6] font-medium font-[roboto] p-1">
+                    <NavLink
+                      to="/add-toy"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                          : `border-0 text-[#00b4d8] p-1`
+                      }
+                    >
+                      Add Toy
+                    </NavLink>
+                  </li>
+
+                  <li
+                    onClick={userNotification}
+                    className="text-[#0077b6] font-medium font-[roboto] p-1"
+                  >
+                    <NavLink
+                      to="/my-toys"
+                      className={({ isActive }) =>
+                        isActive
+                          ? `border-b p-1 text-[#0077b6] border-b-[#00b4d8]`
+                          : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
+                      }
+                    >
+                      My Toys
+                    </NavLink>
+                  </li>
+                </>
+              )}
               <li className="text-[#0077b6] font-medium font-[roboto] p-1">
                 <NavLink
                   to="/blog"

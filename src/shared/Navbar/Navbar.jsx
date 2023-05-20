@@ -6,6 +6,8 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -38,11 +40,15 @@ const Navbar = () => {
   return (
     <nav className=" bg-[#f8f9fa] shadow-md sticky top-0 rounded-b-md pb-2 md:pb-0">
       <div className="relative container px-1 md:px-3 mx-auto flex justify-between items-center">
-        <ul className="">
+        <ul className="flex flex-col md:flex-row items-center justify-between gap-1 md:gap-3 z-10">
+          {/* <ul className=""> */}
           <li>
             <Link to="/">
               <img className="max-w-full h-12 md:h-16" src={logo} alt="" />
             </Link>
+          </li>
+          <li className="text-[#0077b6] font-bold italic font-[archivo] md:text-2xl">
+            <Link to="/">Legowelt</Link>
           </li>
         </ul>
         {/* mobile menu */}
@@ -59,7 +65,7 @@ const Navbar = () => {
           <ul
             className={
               isOpen
-                ? `w-fit right-0 -top-48 absolute md:relative flex flex-col md:flex-row justify-center gap-4 md:gap-3 font-medium`
+                ? `w-fit right-0 -top-72 absolute md:relative flex flex-col md:flex-row justify-center gap-4 md:gap-3 font-medium`
                 : `w-full absolute right-0 md:shadow-none shadow-lg top-12 md:top-0 text-right bg-[#f8f9fa] md:bg-transparent rounded-b-md md:relative flex flex-col md:flex-row justify-center gap-3 md:gap-3 font-medium p-3`
             }
           >
@@ -75,18 +81,46 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li onClick={userNotification}>
+            <li>
               <NavLink
-                to="/my-toys"
+                to="/all-toys"
                 className={({ isActive }) =>
                   isActive
                     ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
                     : `border-0 text-[#00b4d8] p-1`
                 }
               >
-                My Toys
+                All Toys
               </NavLink>
             </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/add-toy"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                        : `border-0 text-[#00b4d8] p-1`
+                    }
+                  >
+                    Add Toy
+                  </NavLink>
+                </li>
+                <li onClick={userNotification}>
+                  <NavLink
+                    to="/my-toys"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                        : `border-0 text-[#00b4d8] p-1`
+                    }
+                  >
+                    My Toys
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li>
               <NavLink
                 to="/blog"
@@ -161,18 +195,46 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li onClick={userNotification}>
+            <li>
               <NavLink
-                to="/my-toys"
+                to="/all-toys"
                 className={({ isActive }) =>
                   isActive
                     ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
                     : `border-0 text-[#00b4d8] p-1`
                 }
               >
-                My Toys
+                All Toys
               </NavLink>
             </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/add-toy"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                        : `border-0 text-[#00b4d8] p-1`
+                    }
+                  >
+                    Add Toy
+                  </NavLink>
+                </li>
+                <li onClick={userNotification}>
+                  <NavLink
+                    to="/my-toys"
+                    className={({ isActive }) =>
+                      isActive
+                        ? `border-b border-b-[#0077b6] text-[#00b4d8] p-1`
+                        : `border-0 text-[#00b4d8] p-1`
+                    }
+                  >
+                    My Toys
+                  </NavLink>
+                </li>
+              </>
+            )}
             <li>
               <NavLink
                 to="/blog"
@@ -223,6 +285,9 @@ const Navbar = () => {
                   className="w-10 h-10 rounded-full "
                   src={user?.photoURL}
                   alt=""
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={user.displayName}
+                  data-tooltip-place="top"
                 />
               </li>
               <li className="text-[#00b4d8]">
@@ -260,6 +325,7 @@ const Navbar = () => {
         </ul>
       </div>
       <ToastContainer />
+      <Tooltip id="my-tooltip" />
     </nav>
   );
 };

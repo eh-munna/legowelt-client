@@ -8,6 +8,8 @@ import SignIn from '../../pages/SingIn/SignIn';
 import MyToys from '../../pages/MyToys/MyToys';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ToysDesc from '../../pages/ToysDesc/ToysDesc';
+import AllToys from '../../pages/AllToys/AllToys';
+import AddToy from '../../pages/AddToy/AddToy';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,18 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomeLayout />,
+      },
+      {
+        path: '/all-toys',
+        element: <AllToys />,
+      },
+      {
+        path: '/add-toy',
+        element: (
+          <PrivateRoute>
+            <AddToy />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/my-toys',
@@ -35,7 +49,11 @@ const router = createBrowserRouter([
         //   </PrivateRoute>
         // ),
         path: '/toy/:id',
-        element: <ToysDesc />,
+        element: (
+          <PrivateRoute>
+            <ToysDesc />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://legowelt-server.vercel.app/toy/${params.id}`),
       },
