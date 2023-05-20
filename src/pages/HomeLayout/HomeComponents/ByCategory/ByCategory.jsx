@@ -6,7 +6,7 @@ const ByCategory = () => {
   const [products, setProducts] = useState([]);
   const [toggleTab, setToggleTab] = useState('lego-cars');
   useEffect(() => {
-    fetch(`http://localhost:5000/loadToy/${toggleTab}`)
+    fetch(`https://legowelt-server.vercel.app/loadToy/${toggleTab}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [toggleTab]);

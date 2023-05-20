@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../../providers/AuthProvider';
 
-const CategroyCard = ({ product }) => {
+const CategoryCard = ({ product }) => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
@@ -31,7 +31,7 @@ const CategroyCard = ({ product }) => {
       <div>
         <img className="max-w-full" src={pictureUrl} alt="" />
       </div>
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-4 md:gap-6 py-6 md:py-12">
         <h3 className="text-lg md:text-xl font-[archivo] text-[#0077b6]">
           {toyName}
         </h3>
@@ -62,4 +62,4 @@ const CategroyCard = ({ product }) => {
   );
 };
 
-export default CategroyCard;
+export default CategoryCard;
