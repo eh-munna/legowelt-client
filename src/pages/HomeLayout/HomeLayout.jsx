@@ -14,8 +14,6 @@ const HomeLayout = () => {
       <ByCategory />
       <Testimonials />
       <NewsConnect />
-      {/* <Gallery />
-       */}
     </>
   );
 };

@@ -7,6 +7,7 @@ import SignUp from '../../pages/SignUp/SignUp';
 import SignIn from '../../pages/SingIn/SignIn';
 import MyToys from '../../pages/MyToys/MyToys';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ToysDesc from '../../pages/ToysDesc/ToysDesc';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: '/toys-desc/:id',
+        element: (
+          <PrivateRoute>
+            <ToysDesc />
+          </PrivateRoute>
+        ),
+      },
+
       { path: '/blog', element: <Blog /> },
       { path: '/sign-up', element: <SignUp /> },
       { path: '/sign-in', element: <SignIn /> },

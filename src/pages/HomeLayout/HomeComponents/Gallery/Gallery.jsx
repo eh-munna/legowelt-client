@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import GalleryCard from './GalleryCard/GalleryCard';
 
 const Gallery = () => {
-  const [products, setProducts] = useState([]);
+  const [galleryImages, setGalleryImages] = useState([]);
   useEffect(() => {
     fetch('/productGallery.json')
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setGalleryImages(data));
   }, []);
   return (
     <div className="my-6 md:my-16">
@@ -19,8 +19,8 @@ const Gallery = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-3">
-        {products.map((product) => (
-          <GalleryCard key={product.id} product={product}></GalleryCard>
+        {galleryImages.map((image) => (
+          <GalleryCard key={image.id} image={image}></GalleryCard>
         ))}
       </div>
     </div>
