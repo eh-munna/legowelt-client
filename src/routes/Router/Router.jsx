@@ -28,12 +28,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/toys-desc/:id',
-        element: (
-          <PrivateRoute>
-            <ToysDesc />
-          </PrivateRoute>
-        ),
+        // path: '/toys-desc/:id',
+        // element: (
+        //   <PrivateRoute>
+        //     <ToysDesc />
+        //   </PrivateRoute>
+        // ),
+        path: '/toy/:id',
+        element: <ToysDesc />,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
 
       { path: '/blog', element: <Blog /> },

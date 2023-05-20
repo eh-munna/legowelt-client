@@ -6,7 +6,7 @@ const ByCategory = () => {
   const [products, setProducts] = useState([]);
   const [toggleTab, setToggleTab] = useState('lego-cars');
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${toggleTab}`)
+    fetch(`http://localhost:5000/loadToy/${toggleTab}`)
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [toggleTab]);
@@ -25,10 +25,10 @@ const ByCategory = () => {
         </p>
       </div>
       <div>
-        <div className="bg-[#f8f9fa] flex justify-between w-4/5 mx-auto gap-2">
+        <div className="bg-[#f8f9fa] flex justify-betweenw-full md:w-4/5 mx-auto gap-2">
           <button
             onClick={() => handleTabChange('lego-cars')}
-            className={`w-1/3 font-[roboto]  p-2 text-base md:text-lg text-[#fff] ${
+            className={`w-2/3 md:w-1/3 font-[roboto]  p-1 md:p-2 text-base md:text-lg text-[#fff] ${
               toggleTab === 'lego-cars' ? `bg-[#00b4d8]` : `bg-[#0077b6]`
             }`}
           >
@@ -36,7 +36,7 @@ const ByCategory = () => {
           </button>
           <button
             onClick={() => handleTabChange('lego-city')}
-            className={`w-1/3 font-[roboto]  p-2 text-base md:text-lg text-[#fff] ${
+            className={`w-2/3 md:w-1/3 font-[roboto]  p-1 md:p-2 text-base md:text-lg text-[#fff] ${
               toggleTab === 'lego-city' ? `bg-[#00b4d8]` : `bg-[#0077b6]`
             }`}
           >
@@ -44,7 +44,7 @@ const ByCategory = () => {
           </button>
           <button
             onClick={() => handleTabChange('lego-architecture')}
-            className={`w-1/3 font-[roboto]  p-2 text-base md:text-lg text-[#fff] ${
+            className={`w-2/3 md:w-1/3 font-[roboto]  p-1 md:p-2 text-base md:text-lg text-[#fff] ${
               toggleTab === 'lego-architecture'
                 ? `bg-[#00b4d8]`
                 : `bg-[#0077b6]`

@@ -1,6 +1,6 @@
 [
   {
-    "toyName": "LEGO Classic Creative Bricks",
+    "toyName": "Classic Creative Bricks",
     "category_id": 1,
     "pictureUrl": "https://i.ibb.co/dk2n7f5/LEGO-Classic-Creative-Bricks1.webp",
     "price": 19.99,
@@ -12,7 +12,7 @@
     "description": "The LEGO Classic Creative Bricks set is perfect for sparking imagination and creativity. It includes a wide variety of colorful bricks and special pieces, allowing kids to build anything they can imagine."
   },
   {
-    "toyName": "LEGO City Police Station",
+    "toyName": "City Police Station",
     "category_id": 2,
     "pictureUrl": "https://i.ibb.co/c8Zx9h5/LEGO-City-Fire-Station1.webp",
     "price": 39.99,
@@ -24,7 +24,7 @@
     "description": "Protect and serve the LEGO City with the Police Station set. It features a police station building, police vehicles, and minifigures. Kids can imagine exciting police adventures and maintain law and order in their LEGO City."
   },
   {
-    "toyName": "LEGO Star Wars Millennium Falcon",
+    "toyName": "Star Wars Millennium Falcon",
     "category_id": 3,
     "pictureUrl": "https://i.ibb.co/WgysZMp/LEGO-Star-Wars-Millennium-Falcon1.webp",
     "price": 89.99,
@@ -36,7 +36,7 @@
     "description": "Join the epic Star Wars saga with the LEGO Millennium Falcon set. This iconic spaceship features detailed interior and exterior designs, along with minifigures of your favorite Star Wars characters. Kids can recreate exciting scenes from the movies or create their own adventures."
   },
   {
-    "toyName": "LEGO Architecture Statue of Liberty",
+    "toyName": "Architecture Statue of Liberty",
     "category_id": 4,
     "pictureUrl": "https://i.ibb.co/6w0Ls4F/LEGO-Architecture-Statue-of-Liberty1.webp",
     "price": 49.99,
@@ -48,7 +48,7 @@
     "description": "Build a detailed LEGO replica of the Statue of Liberty with the LEGO Architecture set. It captures the architectural beauty of this iconic landmark. This set is perfect for architecture enthusiasts and LEGO collectors alike."
   },
   {
-    "toyName": "LEGO Creator Expert Volkswagen Beetle",
+    "toyName": "Creator Expert Volkswagen Beetle",
     "category_id": 5,
     "pictureUrl": "https://i.ibb.co/yyzzfzT/LEGO-Creator-Expert-Volkswagen-Beetle1.webp",
     "price": 69.99,
@@ -60,7 +60,7 @@
     "description": "Cruise the streets in style with the LEGO Creator Expert Volkswagen Beetle. This nostalgic set features a detailed replica of the classic Beetle car. Kids can enjoy the building process and then display it as a collectible model."
   },
   {
-    "toyName": "LEGO City Fire Station",
+    "toyName": "City Fire Station",
     "category_id": 2,
     "pictureUrl": "https://i.ibb.co/c8Zx9h5/LEGO-City-Fire-Station1.webp",
     "price": 49.99,
@@ -72,7 +72,7 @@
     "description": "Respond to emergencies with the LEGO City Fire Station. This set includes a fire station building, fire truck, and firefighter minifigures. Kids can play out exciting firefighting scenarios and save the day."
   },
   {
-    "toyName": "LEGO Star Wars Death Star",
+    "toyName": "Star Wars Death Star",
     "category_id": 3,
     "pictureUrl": "https://i.ibb.co/C9jjStb/LEGO-Star-Wars-Death-Star1.webp",
     "price": 499.99,
@@ -84,7 +84,7 @@
     "description": "Experience the ultimate battle with the LEGO Star Wars Death Star set. This massive set features the Death Star space station, multiple levels, and numerous minifigures from the Star Wars universe. Kids can recreate iconic scenes from the movies or create their own galactic adventures."
   },
   {
-    "toyName": "LEGO Architecture New York City",
+    "toyName": "Architecture New York City",
     "category_id": 4,
     "pictureUrl": "https://i.ibb.co/vQp38Cd/LEGO-Architecture-New-York-City1.webp",
     "price": 59.99,
@@ -96,7 +96,7 @@
     "description": "Build the iconic landmarks of New York City with the LEGO Architecture set. It includes models of the Statue of Liberty, Empire State Building, and more. Kids can learn about architecture and create their own cityscape."
   },
   {
-    "toyName": "LEGO Speed Champions Ferrari F8 Tributo",
+    "toyName": "Speed Champions Ferrari F8 Tributo",
     "category_id": 5,
     "pictureUrl": "https://i.ibb.co/n780MnL/LEGO-Speed-Champions-Ferrari-F8-Tributo1.webp",
     "price": 19.99,
@@ -108,7 +108,7 @@
     "description": "Get behind the wheel of a LEGO Ferrari F8 Tributo. This Speed Champions set features a detailed replica of the iconic sports car. Kids can race, display, and play with this stylish LEGO model."
   },
   {
-    "toyName": "LEGO City Arctic Mobile Exploration Base",
+    "toyName": "City Arctic Mobile Exploration Base",
     "category_id": 2,
     "pictureUrl": "https://i.ibb.co/3k11cqZ/LEGO-City-Arctic-Mobile-Exploration-Base.webp",
     "price": 79.99,
@@ -120,7 +120,7 @@
     "description": "Embark on an arctic expedition with the LEGO City Arctic Mobile Exploration Base. This set includes a mobile research lab, vehicles, and minifigures. Kids can explore the frozen terrain and make exciting discoveries."
   },
   {
-    "toyName": "LEGO Star Wars Millennium Falcon",
+    "toyName": "Star Wars Millennium Falcon",
     "category_id": 3,
     "pictureUrl": "https://i.ibb.co/QKcNJpy/LEGO-Star-Wars-Millennium-Falcon2.webp",
     "price": 89.99,
@@ -132,7 +132,7 @@
     "description": "Join the epic Star Wars saga with the LEGO Millennium Falcon set. This iconic spaceship features detailed interior and exterior designs, along with minifigures of your favorite Star Wars characters. Kids can recreate exciting scenes from the movies or create their own adventures."
   },
   {
-    "toyName": "LEGO Architecture London",
+    "toyName": "Architecture London",
     "category_id": 4,
     "pictureUrl": "https://i.ibb.co/Lp3sfGT/LEGO-Architecture-London.webp",
     "price": 49.99,
@@ -144,7 +144,7 @@
     "description": "Build a detailed LEGO replica of the London Bridge with the LEGO Architecture set. It captures the architectural beauty of this iconic landmark. This set is perfect for architecture enthusiasts and LEGO collectors alike."
   },
   {
-    "toyName": "LEGO Cars Porsche",
+    "toyName": "Cars Porsche",
     "category_id": 5,
     "pictureUrl": "https://i.ibb.co/KKMmj8d/LEGO-Cars-Porsche.webp",
     "price": 69.99,

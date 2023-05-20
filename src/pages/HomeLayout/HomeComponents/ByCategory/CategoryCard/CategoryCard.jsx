@@ -40,7 +40,7 @@ const CategroyCard = ({ product }) => {
             <span className="text-2xl">
               <FaMoneyBill />
             </span>{' '}
-            {price}€
+            €{price}
           </p>
           <p className="text-[#00b4d8] font-[roboto] text-base md:text-xl flex items-center gap-2">
             <span>
@@ -49,7 +49,7 @@ const CategroyCard = ({ product }) => {
             {rating}
           </p>
         </div>
-        <Link to={`/toys-desc/${_id}`}>
+        <Link to={`/toy/${_id}`}>
           <button
             onClick={userNotification}
             className="font-[roboto] bg-[#00b4d8] rounded-md p-2 text-base md:text-lg text-[#fff]"
