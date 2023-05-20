@@ -1,7 +1,10 @@
-import ByCategory from './HomeComponents/ByCategory/ByCategory';
-import Gallery from './HomeComponents/HomeBanner/Gallery/Gallery';
+import React from 'react';
+
 import HomeBanner from './HomeComponents/HomeBanner/HomeBanner';
-import Testimonials from './HomeComponents/HomeBanner/Testimonials/Testimonials';
+import Gallery from './HomeComponents/Gallery/Gallery';
+import ByCategory from './HomeComponents/ByCategory/ByCategory';
+import Testimonials from './HomeComponents/Testimonials/Testimonials';
+import NewsConnect from './HomeComponents/NewsConnect/NewsConnect';
 
 const HomeLayout = () => {
   return (
@@ -10,6 +13,9 @@ const HomeLayout = () => {
       <Gallery />
       <ByCategory />
       <Testimonials />
+      <NewsConnect />
+      {/* <Gallery />
+       */}
     </>
   );
 };

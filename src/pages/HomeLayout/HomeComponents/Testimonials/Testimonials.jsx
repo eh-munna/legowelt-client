@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TestimonialCard from './TestimonialCard';
+import TestimonialCard from './TestimonialCard/TestimonialCard';
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
