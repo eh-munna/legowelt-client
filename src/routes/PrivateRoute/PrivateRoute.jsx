@@ -6,7 +6,12 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div>
+        <progress className="mx-auto progress w-full bg-[#0077b6]"></progress>
+      </div>
+    );
 
   if (!user) {
     return <Navigate to="/sign-in" state={{ from: location }} replace />;

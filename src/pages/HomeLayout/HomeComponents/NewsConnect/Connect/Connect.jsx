@@ -1,7 +1,10 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Connect = () => {
+  AOS.init();
   const feedbackRecord = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -36,7 +39,7 @@ const Connect = () => {
     }
   };
   return (
-    <div className="text-center space-y-3 py-4 md:py-12">
+    <div className="text-center space-y-3 py-4 md:py-12" data-aos="fade-left">
       <h2 className="text-2xl md:text-5xl font-[archivo] text-[#0077b6] pb-3">
         Get in touch
       </h2>
