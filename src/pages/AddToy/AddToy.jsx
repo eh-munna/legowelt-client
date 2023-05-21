@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import useTitleChange from '../../TitleChange/TitleChange';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddToy = () => {
   useTitleChange('Legowelt || Add Toy');
-  const subCategory = ['lego-cars', 'lego-architecture', 'lego-city'];
+  const { user } = useContext(AuthContext);
+  const subCategory = [
+    'lego-cars',
+    'lego-architecture',
+    'lego-city',
+    'lego-creative-building',
+    'lego-star-wars',
+  ];
   const [selectSubCategory, setSelectedSubCategory] = useState(subCategory[0]);
 
   const handleChangeSelectedValue = (event) => {
@@ -17,11 +25,12 @@ const AddToy = () => {
     const toyName = form.toyName.value;
     const price = parseFloat(form.price.value);
     const description = form.description.value;
-    const sellerEmail = form.sellerEmail.value;
-    const sellerName = form.sellerName.value;
+    const sellerEmail = user.email;
+    const sellerName = user.displayName;
     const pictureUrl = form.pictureUrl.value;
     const subCategory = form.subCategory.value;
     const rating = parseFloat(form.rating.value);
+    const availableQuantity = parseFloat(form.quatity.value);
     const newToy = {
       toyName,
       price,
@@ -31,6 +40,7 @@ const AddToy = () => {
       pictureUrl,
       subCategory,
       rating,
+      availableQuantity,
     };
 
     fetch('http://localhost:5000/add-toy', {
@@ -79,21 +89,23 @@ const AddToy = () => {
           </div>
           <div>
             <input
+              readOnly
+              defaultValue={user.email}
               required
               type="email"
               name="sellerEmail"
               id=""
-              placeholder="Your Email"
               className="w-full placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
             />
           </div>
           <div>
             <input
+              defaultValue={user.displayName}
+              readOnly
               required
               type="text"
               name="sellerName"
               id=""
-              placeholder="Your Name"
               className="w-full placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
             />
           </div>
@@ -114,6 +126,16 @@ const AddToy = () => {
               name="rating"
               id=""
               placeholder="Rating of The Toy"
+              className="w-full placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
+            />
+          </div>
+          <div>
+            <input
+              required
+              type="text"
+              name="quatity"
+              id=""
+              placeholder="Amount of The Toy"
               className="w-full placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
             />
           </div>
