@@ -18,7 +18,23 @@ const MyToys = () => {
     fetchMyToys();
   }, []);
 
-  console.log(myToys);
+  // delete the toy
+
+  const deleteToy = (id) => {
+    fetch(`http://localhost:5000/delete-toy/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          alert('Toy deleted!');
+          setMyToys(myToys.filter((toy) => toy._id !== id));
+        }
+      });
+  };
 
   return (
     <div className="my-6 md:my-16">
@@ -40,7 +56,7 @@ const MyToys = () => {
         </div>
 
         {myToys.map((toy) => (
-          <MyToyRow key={toy._id} toy={toy} />
+          <MyToyRow key={toy._id} toy={toy} deleteToy={deleteToy} />
         ))}
       </div>
     </div>
