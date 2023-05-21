@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ToyRow = ({ toy }) => {
+const ToyRow = ({ toy, userNotification }) => {
   const { _id, toyName, sellerName, subCategory, price, availableQuantity } =
     toy;
   return (
@@ -20,7 +20,10 @@ const ToyRow = ({ toy }) => {
       </div>
       <div className="text-[#00b4d8] col-span-5 md:col-span-1 mx-auto md:mx-0 py-2">
         <Link to={`/toy/${_id}`}>
-          <button className=" w-full mx-auto font-[roboto] bg-[#00b4d8] rounded-md py-1 px-3 text-base md:text-lg text-[#fff]">
+          <button
+            onClick={userNotification}
+            className=" w-full mx-auto font-[roboto] bg-[#00b4d8] rounded-md py-1 px-3 text-base md:text-lg text-[#fff]"
+          >
             View Details
           </button>
         </Link>

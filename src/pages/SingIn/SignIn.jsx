@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitleChange from '../../TitleChange/TitleChange';
 
 const SignIn = () => {
+  useTitleChange('Legowelt || Sign In');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 

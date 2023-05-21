@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import useTitleChange from '../../TitleChange/TitleChange';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const AddToy = () => {
   useTitleChange('Legowelt || Add Toy');
@@ -42,8 +43,9 @@ const AddToy = () => {
       rating,
       availableQuantity,
     };
+    form.reset();
 
-    fetch('http://localhost:5000/add-toy', {
+    fetch('https://legowelt-server.vercel.app/add-toy', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,12 +55,18 @@ const AddToy = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.insertedId) {
-          alert('Added');
+          toast.success('A new toy is added', {
+            position: 'top-center',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         }
-        console.log(data);
       });
-
-    console.log(newToy);
   };
 
   return (

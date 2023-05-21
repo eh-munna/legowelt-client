@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitleChange from '../../TitleChange/TitleChange';
 
 const SignUp = () => {
+  useTitleChange('Legowelt || Sign Up');
   const [error, setError] = useState('');
   const { createUser, userLogOut } = useContext(AuthContext);
   const navigation = useNavigate();

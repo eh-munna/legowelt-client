@@ -49,7 +49,8 @@ const router = createBrowserRouter([
             <Update />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://legowelt-server.vercel.app/toy/${params.id}`),
       },
       {
         path: '/toy/:id',

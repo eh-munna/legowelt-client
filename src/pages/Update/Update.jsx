@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Update = () => {
   const updateJob = useLoaderData();
@@ -18,8 +19,8 @@ const Update = () => {
       description,
       availableQuantity,
     };
-
-    fetch(`http://localhost:5000/update-toy/${_id}`, {
+    form.reset();
+    fetch(`https://legowelt-server.vercel.app/update-toy/${_id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -29,9 +30,17 @@ const Update = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert('Uptayed');
+          toast.info('Toy is updated', {
+            position: 'top-center',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
         }
-        console.log(data);
       });
   };
 
