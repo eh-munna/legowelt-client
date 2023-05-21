@@ -30,7 +30,7 @@ const AddToy = () => {
     const pictureUrl = form.pictureUrl.value;
     const subCategory = form.subCategory.value;
     const rating = parseFloat(form.rating.value);
-    const availableQuantity = parseFloat(form.quatity.value);
+    const availableQuantity = parseFloat(form.quantity.value);
     const newToy = {
       toyName,
       price,
@@ -133,7 +133,7 @@ const AddToy = () => {
             <input
               required
               type="text"
-              name="quatity"
+              name="quantity"
               id=""
               placeholder="Amount of The Toy"
               className="w-full placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
@@ -168,7 +168,7 @@ const AddToy = () => {
 
           <div>
             <textarea
-              placeholder="Prduct Description"
+              placeholder="Product Description"
               className="w-full bg-transparent placeholder:text-[#00b4d8] border-b border-b-[#0077b6] focus:outline-none focus:border-b-[#00b4d8] text-[#0077b6] p-2"
               name="description"
               id=""

@@ -27,8 +27,9 @@ const MyToys = () => {
           <div className="flex flex-col text-[#0077b6] font-medium text-base md:text-xl">
             Name
           </div>
+
           <div className="flex flex-col text-[#0077b6] font-medium text-base md:text-xl">
-            Category
+            Price
           </div>
           <div className="flex flex-col text-[#0077b6] font-medium text-base md:text-xl">
             Update
