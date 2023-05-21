@@ -130,7 +130,7 @@ const Navbar = () => {
                     : `border-0 text-[#00b4d8] p-1`
                 }
               >
-                Blog
+                Blogs
               </NavLink>
             </li>
             <div className="md:hidden">
@@ -244,7 +244,7 @@ const Navbar = () => {
                     : `border-0 text-[#00b4d8] p-1`
                 }
               >
-                Blog
+                Blogs
               </NavLink>
             </li>
             <div className="md:hidden">

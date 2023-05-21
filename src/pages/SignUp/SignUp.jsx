@@ -125,7 +125,7 @@ const SignUp = () => {
           </button>
         </div>
         <div>
-          <p className="text-[#00b4d8]">
+          <p className="text-[#00b4d8] font-[roboto]">
             Already have an account?{' '}
             <Link className="text-[#0077b6]" to="/sign-in">
               Sign In

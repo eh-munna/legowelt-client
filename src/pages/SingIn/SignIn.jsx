@@ -106,7 +106,7 @@ const SignIn = () => {
         </div>
       </form>
       <div className="w-10/12 mx-auto md:mx-0 my-3 flex flex-col gap-2 md:gap-2 md:flex-row items-center">
-        <h3 className="text-[#0077b6]">Or You can... </h3>
+        <h3 className="text-[#0077b6] font-[roboto]">Or You can... </h3>
         <button
           type="button"
           onClick={googleLogin}
@@ -115,7 +115,7 @@ const SignIn = () => {
           Sign in with Google
         </button>
       </div>
-      <p className="text-[#00b4d8]">
+      <p className="text-[#00b4d8] font-[roboto]">
         Don&apos;t have an account?{' '}
         <Link className="text-[#0077b6]" to="/sign-up">
           Sign Up

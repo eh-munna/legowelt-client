@@ -136,7 +136,7 @@ const Footer = () => {
                       : `border-0 p-1 text-[#00b4d8] border-b-[#0077b6]`
                   }
                 >
-                  Blog
+                  Blogs
                 </NavLink>
               </li>
             </ul>

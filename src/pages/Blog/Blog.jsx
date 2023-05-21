@@ -2,7 +2,7 @@ import React from 'react';
 import useTitleChange from '../../TitleChange/TitleChange';
 
 const Blog = () => {
-  useTitleChange('Legowelt || Blog');
+  useTitleChange('Legowelt || Blogs');
   return (
     <div className="my-6 md:my-16">
       <div className="capitalize text-center space-y-3 py-4 md:py-12">
