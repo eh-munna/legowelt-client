@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ToyRow from './ToyRow/ToyRow';
+import useTitleChange from '../../TitleChange/TitleChange';
 
 const AllToys = () => {
+  useTitleChange('Legowelt || All Toys');
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
