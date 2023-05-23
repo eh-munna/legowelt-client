@@ -11,18 +11,30 @@ const AllToys = () => {
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    fetch(`https://legowelt-server.vercel.app/toys`)
-      .then((res) => res.json())
-      .then((data) => setToys(data));
-  }, []);
+    if (searchText === '') {
+      fetch(`https://legowelt-server.vercel.app/toys`)
+        .then((res) => res.json())
+        .then((data) => {
+          setToys(data);
+        });
+    } else {
+      fetch(`https://legowelt-server.vercel.app/toySearchByName/${searchText}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setToys(data);
+        });
+    }
+  }, [searchText]);
 
-  const searchTextHandler = () => {
-    fetch(`https://legowelt-server.vercel.app/toySearchByName/${searchText}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setToys(data);
-      });
-  };
+  // searching toys by handler function
+
+  // const searchTextHandler = () => {
+  //   fetch(`https://legowelt-server.vercel.app/toySearchByName/${searchText}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setToys(data);
+  //     });
+  // };
 
   const userNotification = () => {
     if (!user) {
@@ -50,14 +62,14 @@ const AllToys = () => {
             placeholder="Search your toys"
           />
         </div>
-        <div className="">
+        {/* <div className="">
           <button
             onClick={searchTextHandler}
             className=" mx-auto font-[roboto] bg-[#00b4d8] rounded-md py-2 px-3 text-base md:text-lg text-[#fff]"
           >
             Search
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col">
