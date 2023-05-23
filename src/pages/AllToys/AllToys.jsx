@@ -53,6 +53,10 @@ const AllToys = () => {
 
   return (
     <div className="my-6 md:my-16">
+      <h1 className="text-xl font-medium font-[archivo] text-[#0077b6] text-center">
+        Here{' '}
+        {toys.length <= 1 ? `is ${toys.length} toy` : `are ${toys.length} toys`}
+      </h1>
       <div className="py-6 flex w-full mx-auto items-center gap-3">
         <div className="w-full">
           <input
