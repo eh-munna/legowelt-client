@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const AllToys = () => {
   useTitleChange('Legowelt || All Toys');
   const { user } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState('');
 
@@ -16,12 +17,14 @@ const AllToys = () => {
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
+          setIsLoading(false);
         });
     } else {
       fetch(`https://legowelt-server.vercel.app/toySearchByName/${searchText}`)
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
+          setIsLoading(false);
         });
     }
   }, [searchText]);
@@ -53,10 +56,16 @@ const AllToys = () => {
 
   return (
     <div className="my-6 md:my-16">
-      <h1 className="text-xl font-medium font-[archivo] text-[#0077b6] text-center">
-        Here{' '}
-        {toys.length <= 1 ? `is ${toys.length} toy` : `are ${toys.length} toys`}
-      </h1>
+      {isLoading ? (
+        <progress className="mx-auto progress w-full bg-[#0077b6]"></progress>
+      ) : (
+        <h1 className="text-xl font-medium font-[archivo] text-[#0077b6] text-center">
+          Here{' '}
+          {toys.length <= 1
+            ? `is ${toys.length} toy`
+            : `are ${toys.length} toys`}
+        </h1>
+      )}
       <div className="py-6 flex w-full mx-auto items-center gap-3">
         <div className="w-full">
           <input
